@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues>
+<!--    <ID>io.gitlab.arturbosch.detekt.formatting.FormattingProvider:NoWildcardImports</ID>-->
+  </ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>LargeClass:UnusedPrivateMemberSpec.kt$UnusedPrivateMemberSpec : Spek</ID>
+  </CurrentIssues>
+</SmellBaseline>

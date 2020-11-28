@@ -1,0 +1,272 @@
+config:
+  excludes: 'custom-checks.*'
+
+custom-checks:
+  active: true
+  SpekTestDiscovery:
+    active: true
+    includes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt']
+
+comments:
+  CommentOverPrivateProperty:
+    active: true
+  UndocumentedPublicClass:
+    active: true
+    includes: [ '**/*.kt' ]
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/gen/**']
+  UndocumentedPublicFunction:
+    active: true
+    includes: [ '**/*.kt' ]
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/gen/**']
+
+complexity:
+  active: true
+  ReplaceSafeCallChainWithRun:
+    active: true
+  StringLiteralDuplication:
+    active: true
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/gen/**']
+    threshold: 5
+    ignoreAnnotation: true
+    excludeStringsWithLessThan5Characters: true
+    ignoreStringsRegex: '$^'
+  ComplexInterface:
+    active: true
+    threshold: 10
+    includeStaticDeclarations: false
+    includePrivateDeclarations: false
+  ComplexMethod:
+    active: true
+    ignoreSingleWhenExpression: true
+  LargeClass:
+    active: true
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/gen/**']
+  MethodOverloading:
+    active: true
+  TooManyFunctions:
+    active: false
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/util/**', '**/gen/**']
+
+coroutines:
+  active: true
+  GlobalCoroutineUsage:
+    active: true
+  RedundantSuspendModifier:
+    active: true
+  SuspendFunWithFlowReturnType:
+    active: true
+
+exceptions:
+  active: true
+  ExceptionRaisedInUnexpectedLocation:
+    active: true
+  InstanceOfCheckForException:
+    active: true
+  NotImplementedDeclaration:
+    active: true
+  PrintStackTrace:
+    active: true
+  RethrowCaughtException:
+    active: true
+  ReturnFromFinally:
+    active: true
+  SwallowedException:
+    active: true
+  ThrowingExceptionFromFinally:
+    active: true
+  ThrowingExceptionInMain:
+    active: true
+  ThrowingExceptionsWithoutMessageOrCause:
+    active: true
+  ThrowingNewInstanceOfSameException:
+    active: true
+  TooGenericExceptionCaught:
+    active: true
+  TooGenericExceptionThrown:
+    active: true
+
+formatting:
+  active: true
+  android: false
+  autoCorrect: true
+  MaximumLineLength:
+    active: false
+  ParameterListWrapping:
+    active: false
+  NoWildcardImports:
+    active: false
+
+performance:
+  active: true
+  ArrayPrimitive:
+    active: true
+  ForEachOnRange:
+    active: true
+  SpreadOperator:
+    active: true
+  UnnecessaryTemporaryInstantiation:
+    active: true
+
+potential-bugs:
+  active: true
+  UnsafeCast:
+    active: true
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/gen/**']
+  Deprecation:
+    active: true
+  DuplicateCaseInWhenExpression:
+    active: true
+  EqualsAlwaysReturnsTrueOrFalse:
+    active: true
+  EqualsWithHashCodeExist:
+    active: true
+  ExplicitGarbageCollectionCall:
+    active: true
+  HasPlatformType:
+    active: true
+  IgnoredReturnValue:
+    active: true
+  ImplicitDefaultLocale:
+    active: true
+  ImplicitUnitReturnType:
+    active: true
+  InvalidRange:
+    active: true
+  IteratorHasNextCallsNextMethod:
+    active: true
+  IteratorNotThrowingNoSuchElementException:
+    active: true
+  LateinitUsage:
+    active: true
+  MapGetWithNotNullAssertionOperator:
+    active: true
+  MissingWhenCase:
+    active: true
+  NullableToStringCall:
+    active: true
+  RedundantElseInWhen:
+    active: true
+  UnconditionalJumpStatementInLoop:
+    active: true
+  UnnecessaryNotNullOperator:
+    active: true
+  UnnecessarySafeCall:
+    active: true
+  UnreachableCode:
+    active: true
+  UnsafeCallOnNullableType:
+    active: true
+  UselessPostfixExpression:
+    active: true
+  WrongEqualsTypeParameter:
+    active: true
+
+style:
+  ClassOrdering:
+    active: true
+  CollapsibleIfStatements:
+    active: true
+  ForbiddenComment:
+    active: true
+    values: ['TODO:', 'FIXME:', 'STOPSHIP:', '@author']
+  LibraryCodeMustSpecifyReturnType:
+    active: true
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/gen/**']
+  MaxLineLength:
+    active: true
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt', '**/gen/**']
+    excludeCommentStatements: true
+  MagicNumber:
+    active: false
+  NestedClassesVisibility:
+    active: true
+  RedundantVisibilityModifierRule:
+    active: true
+  ReturnCount:
+    active: true
+    excludeGuardClauses: true
+  SpacingBetweenPackageAndImports:
+    active: true
+  UnusedPrivateMember:
+    active: true
+    allowedNames: '(_|ignored|expected)'
+  UseCheckOrError:
+    active: true
+  WildcardImport:
+    excludeImports:
+      - tornadofx
+  MayBeConst:
+    active: true
+  DataClassShouldBeImmutable:
+    active: true
+  NewLineAtEndOfFile:
+    active: true
+  OptionalAbstractKeyword:
+    active: true
+  VarCouldBeVal:
+    active: true
+  PreferToOverPairSyntax:
+    active: true
+  UnnecessaryApply:
+    active: true
+  UnnecessaryLet:
+    active: true
+  UseRequire:
+    active: true
+  UseIfInsteadOfWhen:
+    active: true
+  UseRequireNotNull:
+    active: true
+  UtilityClassWithPublicConstructor:
+    active: true
+  UseEmptyCounterpart:
+    active: true
+  UselessCallOnNotNull:
+    active: true
+  UseDataClass:
+    active: true
+    allowVars: true
+  UseCheckNotNull:
+    active: true
+  UseArrayLiteralsInAnnotations:
+    active: true
+  UntilInsteadOfRangeTo:
+    active: true
+  ExplicitItLambdaParameter:
+    active: true
+  UnnecessaryParentheses:
+    active: true
+  UnnecessaryInheritance:
+    active: true
+  SafeCast:
+    active: true
+  ForbiddenVoid:
+    active: true
+    ignoreOverridden: false
+    ignoreUsageInGenerics: false
+
+build:
+  excludeCorrectable: true
+  maxIssues: 50
+  weights:
+    performance: 4
+    comments: 0
+    formatting: 0
+    potential-bugs: 4
+    style: 1
+    exceptions: 2
+    coroutines: 3
+    complexity: 1
+
+console-reports:
+  active: true
+
+processors:
+  active: true
+  #exclude:
+    # - 'DetektProgressListener'
+    # - 'FunctionCountProcessor'
+    # - 'PropertyCountProcessor'
+    # - 'ClassCountProcessor'
+    # - 'PackageCountProcessor'
+    # - 'KtFileCountProcessor'
