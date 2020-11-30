@@ -1,4 +1,4 @@
-package im.tony.view
+package im.tony.views
 
 import javafx.geometry.Pos
 import tornadofx.*

@@ -1,4 +1,4 @@
-package im.tony.view
+package im.tony.views
 
 import im.tony.util.FakeDatabase
 import tornadofx.*

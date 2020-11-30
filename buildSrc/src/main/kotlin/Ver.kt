@@ -1,5 +1,5 @@
 object Ver {
-  const val Kotlin = "1.4.10"
+  const val Kotlin = "1.4.20"
   const val TornadoFx = "1.7.20"
   const val Kotest = "4.3.1"
   const val Mockk = "1.10.2"

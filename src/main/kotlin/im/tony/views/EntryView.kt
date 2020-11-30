@@ -1,4 +1,4 @@
-package im.tony.view
+package im.tony.views
 
 import javafx.geometry.Insets
 import javafx.geometry.Pos
@@ -9,7 +9,9 @@ import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
 import javafx.util.Duration
 import tornadofx.*
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 class EntryView : View("Starting") {
   /**
    * Called when a Component becomes the Scene root or

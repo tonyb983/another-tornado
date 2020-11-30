@@ -101,8 +101,6 @@ class Styles : Stylesheet() {
 
       and(pressed) {
         this.textFill = Color.ANTIQUEWHITE
-        //this.borderWidth = multi(box(2.px))
-        //this.borderStyle = multi(BorderStrokeStyle.SOLID)
         this.borderColor = multi(box(color.desaturate()))
         //this.borderRadius = multi(box(10.px))
         this.backgroundColor = multi(color.desaturate())

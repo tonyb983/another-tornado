@@ -1,8 +1,11 @@
-package im.tony.view
+package im.tony.views
 
+import im.tony.fragments.AcceptCancelModal
+import im.tony.fragments.InfoBoxModal
 import im.tony.styles.Styles
 import javafx.geometry.Pos
 import javafx.scene.layout.Priority
+import org.scenicview.ScenicView
 import tornadofx.*
 
 class MenuBar : View("My View") {
@@ -23,10 +26,18 @@ class MenuBar : View("My View") {
         style {
           addClass(Styles.coolBlueBtn)
         }
+
+        action {
+          ScenicView.show(FX.primaryStage.scene)
+        }
       }
       button("View") {
         style {
           addClass(Styles.coolBlueBtn)
+        }
+
+        action {
+          find<AcceptCancelModal>().openModal()
         }
       }
     }
@@ -38,6 +49,10 @@ class MenuBar : View("My View") {
       button("Help") {
         style {
           addClass(Styles.coolBrownBtn)
+        }
+
+        action {
+          find<InfoBoxModal>().openModal()
         }
       }
     }

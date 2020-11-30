@@ -1,9 +1,13 @@
 package im.tony.fragments
 
-import im.tony.util.IconHelper
+import im.tony.util.*
+import javafx.animation.Interpolator
 import javafx.geometry.Pos
 import javafx.scene.Node
+import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
+import javafx.scene.text.TextAlignment
+import javafx.util.Duration
 import org.controlsfx.glyphfont.FontAwesome
 import tornadofx.*
 
@@ -14,7 +18,7 @@ typealias BodySetter = VBox.() -> Node
 val Fragment.defaultCancelAction: ModalAction
   get() = { this.close() }
 
-class AcceptCancelModal : Fragment("Some Modal", IconHelper.FA.create(FontAwesome.Glyph.EXCLAMATION_CIRCLE)) {
+class AcceptCancelModal : Fragment("Some Modal") {
   private var cancelAction: ModalAction = defaultCancelAction
   private var acceptAction: ModalAction = defaultCancelAction
   private var message: String = "Yes or No?"
@@ -23,6 +27,9 @@ class AcceptCancelModal : Fragment("Some Modal", IconHelper.FA.create(FontAwesom
   private var messageStyler: StyleSetter? = null
   private var acceptButtonStyler: StyleSetter? = null
   private var cancelButtonStyler: StyleSetter? = null
+
+  @Suppress("MemberVisibilityCanBePrivate")
+  var preferredSize: Vector2D = Vector2D(300.0, 150.0)
 
   fun withWindowStyle(styleSetter: StyleSetter): AcceptCancelModal {
     windowStyler = styleSetter
@@ -82,24 +89,42 @@ class AcceptCancelModal : Fragment("Some Modal", IconHelper.FA.create(FontAwesom
   }
 
   override val root = vbox(5) {
+    val (prefX, prefY) = preferredSize
+    setPrefSize(prefX, prefY)
     style(true) { windowStyler?.invoke(this) }
 
     label {
+      prefHeight = prefY * 0.8
       text = message
+      font = FontHelper.LatoRegular14
+      alignment = Pos.CENTER
+      textAlignment = TextAlignment.CENTER
       style(true) { messageStyler?.invoke(this) }
     }
 
     hbox(2, Pos.BOTTOM_CENTER) {
+      prefHeight = prefX * 0.2
+      spacer(Priority.SOMETIMES)
       button("", IconHelper.get(FontAwesome.Glyph.CLOSE)) {
         action { cancelAction() }
-        style(true) {  }
+        style(true) {
+          this.endMargin = 6.px
+          cancelButtonStyler?.invoke(this)
+        }
       }
-
+      spacer(Priority.SOMETIMES)
       button("", IconHelper.get(FontAwesome.Glyph.CHECK_SQUARE)){
         action { acceptAction() }
-        style(true) { acceptButtonStyler?.invoke(this) }
+        style(true) {
+          this.startMargin = 6.px
+          acceptButtonStyler?.invoke(this)
+        }
       }
+      spacer(Priority.SOMETIMES)
     }
+  }.apply {
+    this.opacity = 0.0
+    this.fade(Duration.seconds(0.5), 1.0, Interpolator.EASE_IN, reversed = false, play = true)
   }
 
   companion object {
